@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+
+<body>
+    <h1>Class</h1>
+</body>
+
+<script>
+    class Student {
+        #nama;
+        #kelas;
+        #gender;
+        #umur; 
+
+        constructor(nama, kelas, gender, umur) {
+            this.nama = nama;
+            this.kelas = kelas;
+            this.gender = gender;
+            this.umur = umur;
+        }
+
+        helloSiswa() {
+            let title= "";
+            if (this.umur < 20) {
+                title = "Mas";
+            } 
+            else if(this.umur >= 20) {
+                title = "Bapak";
+            } else if( this.umur > 30) {
+                title = "Kakek";
+            } 
+            
+            console.log(`${this.umur}: Hallo ${title} ${this.nama}, Selamat Malam`);
+        }
+    }
+
+    const student_func_1 = new Student("Opick", "Bisnis Analis", "L", 30);
+    const student_func_2 = new Student("Kautsar", "Product Manager", "L", 15);
+    const student_func_3 = new Student("Fahmi", "Backend Developer", "L", 45);
+    const student_func_4 = new Student("Sinta", "QA", "P", 20);
+
+    // console.log(student_func_1);
+    // console.log(student_func_2);
+    // console.log(student_func_3);
+    // console.log(student_func_4);
+
+    student_func_1.helloSiswa();
+    student_func_2.helloSiswa();
+    student_func_3.helloSiswa();
+    student_func_4.helloSiswa();
+
+
+    class Game {
+        constructor() {
+        }
+
+        gameplay(option_player1, option_com) {
+            if (option_player1 && option_com) {
+                if (option_player1 === option_com) {
+                    console.log("Drwa");
+                } else if (option_player1 === "batu" && option_com === "kertas") {
+                    console.log("Player 1 Kalah")
+                }
+            }   
+        }
+    }
+
+    const game = new Game();
+    game.gameplay("batu", "kertas");
+
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object And Function</title>
+</head>
+
+<body>
+    <h1>Object And Function</h1>
+</body>
+
+<script>
+    // Membuat object student secara manual menggunakan type data object;
+    const student_1 = {
+        nama: "Hendar",
+        kelas: "Fullstack Web Developer",
+        gender: "Laki-Laki"
+    }
+
+    const student_2 = {
+        nama: "Hendry",
+        kelas: "Fullstack Web Developer",
+        gender: "Laki-Laki"
+    }
+
+    const student_3 = {
+        nama: "Fitri",
+        kelas: "Fullstack Web Developer",
+        gender: "Perempuan"
+    }
+
+    console.log(student_1);
+    console.log(student_2);
+    console.log(student_3);
+
+    function getGender(objectStudent) {
+        return objectStudent.gender;
+    }
+
+    console.log(getGender(student_3));
+    console.log(getGender(student_2));
+    console.log(getGender(student_1));
+
+    // Membuat object dengan function constructor.
+    console.log("-----------------------------------------");
+    function Student(nama, kelas, gender) {
+        this.nama = nama;
+        this.kelas = kelas;
+        this.gender = gender;
+    }
+
+    const student_func_1 = new Student("Opick", "Bisnis Analis", "Laki-laki");
+    const student_func_2 = new Student("Kautsar", "Product Manager", "Laki-laki");
+    const student_func_3 = new Student("Fahmi", "Backend Developer", "Laki-laki");
+    const student_func_4 = new Student("Sinta", "QA", "Perempuan");
+
+    console.log(student_func_1);
+    console.log(student_func_2);
+    console.log(student_func_3);
+    console.log(student_func_4);
+
+    // Membuat Function didalam function consturctor
+    function Facil(nama, kelas, gender) {
+        this.nama = nama;
+        this.kelas = kelas;
+        this.gender = gender;
+        
+        this.helloStudent = (nama, gender) => {
+            const title = (gender === "L") ? "Mas ":"Mba "; 
+            console.log(`Hallo ${title} ${nama}, Selamat Malam!`);
+        }
+    }
+
+    const facil_1 = new Facil("Siti", "FWA", "Perempuan");
+    console.log(facil_1);
+    facil_1.helloStudent("Hendar", "L");
+
+    facil_1.helloStudent("Hendar", "L");
+</script>
+
+</html>

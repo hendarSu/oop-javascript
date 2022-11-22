@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <!-- Exercise 1 -->
+    <div class="container-fluid pt-1">
+        <div class="row mb-1 mt-1">
+            <div class="col-md-12 ">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Table Siswa <small class="text-muted">Ini merupakan contoh implementasi
+                                data Array</small></h5>
+                        <p class="card-text">ini merupakan table informasi daftar siswa,</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered" id="table-siswa">
+                    <thead>
+                        <tr>
+                            <th>List Siswa</th>
+                            <th colspan="2">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="input-search-siswa"
+                                           aria-label="Sizing example input" placeholder="Pencarian Siswa"
+                                           aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Umur</th>
+                            <th scope="col">Kelas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="container-fluid pt-1">
+        <div class="row mb-1 mt-1">
+            <div class="col-md-12 ">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pengelompokan Bilangan <small class="text-muted">kita punya 2 kelompok
+                                bilangah</small></h5>
+
+                        <ul class="card-text">
+                            <li>Untuk bilangan Genap ada [2, 4, 6, 8, 10]</li>
+                            <li>Untuk Bilangan Ganjil ada [1, 3, 5, 7, 9]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered" id="table-bilangan">
+                    <thead>
+                        <tr>
+                            <th>Papan Cek Bilangan</th>
+                            <th>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="input-bilangan"
+                                           aria-label="Sizing example input" placeholder="input Bilangan"
+                                           aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    // Array Object
+    let data_siswa = [
+        {
+            "name": "siswa 1",
+            "class": "1",
+            "age": 1
+        },
+        {
+            "name": "siswa 2",
+            "class": "2",
+            "age": 2
+        },
+        {
+            "name": "siswa 3",
+            "class": "1",
+            "age": 3
+        },
+    ];
+
+    // number[]
+    const genap = [2, 4, 6, 8, 20];
+    const ganjil = [1, 3, 5, 7, 9];
+
+    function setTableRow() {
+        for (const siswa of data_siswa) {
+            $("#table-siswa tbody").append(`<tr><td>${siswa.name}</td><td>${siswa.age}</td><td>${siswa.class}</td></tr>`);
+        }
+    }
+
+    setTableRow();
+
+    function find(name) {
+        // 1
+        $("#table-siswa tbody").empty();
+
+        if (name) {
+            // 2
+            const siswa = data_siswa.find(function findName(data) {
+                return data.name === name;
+            })
+
+            // 3
+            if (siswa) {
+                $("#table-siswa tbody").append(`<tr><td>${siswa.name}</td><td>${siswa.age}</td><td>${siswa.class}</td></tr>`);
+            } else {
+                $("#table-siswa tbody").append(`<tr><td colspan="3">Siswa <b>${name}</b> tidak ditemukan!</td></tr>`);
+            }
+        } else {
+            setTableRow();
+        }
+    }
+
+    $(document).ready(function () {
+        $("input#input-search-siswa").keyup(function () {
+            const name = $("input#input-search-siswa").val();
+            find(name);
+        });
+
+        $("input#input-bilangan").keyup(function () {
+            const number = $("input#input-bilangan").val();
+            $("#table-bilangan tbody").empty();
+            if (number) {
+                // genap.includes(parseInt(number) = true , tidak ada = flase
+
+                const inputanStatus = 1;
+                const status = [1, 2, 3];
+                if (status.includes(inputanStatus)) {
+                    console.log("berhasil");
+                }
+
+                if (inputanStatus === 1 || inputanStatus === 3 || inputanStatus === 2) {
+                    console.log("berhasil");
+                }
+
+
+                if (genap.includes(parseInt(number))) {
+                    $("#table-bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-success">${number} adalah bilangan genap</span></h4></td></tr>`);
+                } else if (ganjil.includes(parseInt(number))) {
+                    $("#table-bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-info">${number} adalah bilangan ganjil</span></h4></td></tr>`);
+                } else {
+                    $("#table-bilangan tbody").append(`<tr><td colspan="2"> <h4><span class="badge bg-warning">Maaf untuk ${number} tidak masuk creteria.</span></h4></td></tr>`);
+                }
+            }
+        });
+    });
+</script>
+</html>
