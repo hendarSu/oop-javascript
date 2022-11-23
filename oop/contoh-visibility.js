@@ -18,7 +18,7 @@ class Gameplay {
 
 
     /**
-    * Visibility protected hanya kelas dia sendiri yang bisa memanggilnya.
+    * Visibility protected hanya kelas turunan yang bisa memanggilnya.
     */
     _getName() {
         console.log("Hi Myname player 1");
@@ -53,7 +53,7 @@ class Computer extends TopScore(Gameplay) {
     }
 
     getName() {
-        super._getName(); // method private dari parent class.
+        super._getName(); // method protected dari parent class.
         super.showScore();
     }
 }
