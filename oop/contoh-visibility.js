@@ -18,7 +18,7 @@ class Gameplay {
 
 
     /**
-    * Visibility protected hanya kelas dia sendiri yang bisa memanggilnya.
+    * Visibility protected hanya kelas turunan dan kelas dia sendiri yang bisa memanggilnya.
     */
     _getName() {
         console.log("Hi Myname player 1");
