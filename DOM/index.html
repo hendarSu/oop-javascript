@@ -23,7 +23,8 @@
                 <h3 class="fw-light">List Pokemon</h3>
                 <div class="btn-group shadow-lg p-3 bg-body rounded" role="group"
                      aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" value="pokemon_air" id="pokemon1" autocomplete="off">
+                    <input type="radio" class="btn-check" name="btnradio" name="input-pokemon-1" value="pokemon_air"
+                           id="pokemon1" autocomplete="off">
                     <label class="btn btn-outline-primary" for="pokemon1">
                         <img src="/DOM/pokemon_air.webp" width="100px" alt="">
                     </label>
@@ -52,11 +53,31 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h3 class="fw-light">Game Pokemon</h3>
-                <table>
+                <h3 class="fw-light">Rumble Arena</h3>
+                <table class="table">
                     <tr>
-                        <td>Player 1</td>
-                        <td>Player 2</td>
+                        <td class="text-center">
+                            <h4>Player 1</h4>
+                            <input type="radio" class="btn-check" name="btnradio" name="input-player-1" value="5"
+                                   id="player_1" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="player_1">
+                                <img src="/DOM/pokemon_air.webp" width="100px" alt="">
+                            </label>
+                        </td>
+                        <td class="text-center">
+                            <h1>VS</h1>
+                            <button class="btn btn-primary btn-sm" onclick="showScore()">
+                                Fight
+                            </button>
+                        </td>
+                        <td class="text-center">
+                            <h4>Player 2</h4>
+                            <input type="radio" class="btn-check" name="btnradio" name="input-player-2" value="2"
+                                   id="player_2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="player_2">
+                                <img src="/DOM/pokemon_api.webp" width="85px" alt="">
+                            </label>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -64,8 +85,6 @@
         </div>
     </div>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
     class Pokemon {
@@ -75,28 +94,24 @@
 
         showPokemonApi() {
             const pokemon_result = document.getElementById('pokemon-result');
-            pokemon_result.innerHTML = "";
             pokemon_result.innerHTML = "Aku pokemon api";
             pokemon_result.style.color = "red";
         }
 
         showPokemonAir() {
             const pokemon_result = document.getElementById('pokemon-result');
-            pokemon_result.innerHTML = "";
             pokemon_result.innerHTML = "Aku pokemon air";
             pokemon_result.style.color = "blue";
         }
 
         showPokemonAngin() {
             const pokemon_result = document.getElementById('pokemon-result');
-            pokemon_result.innerHTML = "";
             pokemon_result.innerHTML = "Aku pokemon air";
             pokemon_result.style.color = "gray";
         }
 
         showPokemonJahat() {
             const pokemon_result = document.getElementById('pokemon-result');
-            pokemon_result.innerHTML = "";
             pokemon_result.innerHTML = "Aku pokemon jahat";
             pokemon_result.style.color = "black";
         }
@@ -111,13 +126,48 @@
     pokemon_api.addEventListener("click", pokemon.showPokemonApi);
 
     const pokemon_angin = document.getElementById("pokemon3");
-    pokemon_angin.addEventListener("click", pokemon.showPokemonAngin);
+    pokemon_angin.addEventListener("click", event => {
+        pokemon.showPokemonAngin();
+    });
 
     const pokemon_jahat = document.getElementById("pokemon4");
     pokemon_jahat.addEventListener("click", pokemon.showPokemonJahat);
 
     const btn_reset = document.getElementById("btn-reset");
-    btn_reset.addEventListener("click", pokemon.reset)
+    btn_reset.addEventListener("click", pokemon.reset);
+
+    // Game Arena Game Pokemon
+    class Arena {
+        arenaRumble() {
+            const player_1 = document.getElementById("player_1").value;
+            const player_2 = document.getElementById("player_2").value;
+
+            if (parseInt(player_1) > parseInt(player_2)) {
+                this.showScore("Player 1");
+            } else if (parseInt(player_1) < parseInt(player_2)) {
+                this.showScore("Player 2");
+            } else {
+                this.showScore(null);
+            }
+        }
+
+        showScore(winner) {
+            const pokemon_result = document.getElementById('pokemon-result');
+            pokemon_result.innerHTML = "";
+            if (winner) {
+                pokemon_result.innerHTML = "Selamat <b>" + winner + "</b> Menang";
+            } else {
+                pokemon_result.innerHTML = "Seriiii yaa!";
+            }
+
+            pokemon_result.style.color = "#dc3545";
+        }
+    }
+
+    const arena = new Arena();
+    function showScore() {
+        arena.arenaRumble();
+    }
 </script>
 
 </html>

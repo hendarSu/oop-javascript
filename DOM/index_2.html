@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="title-div">
+        <h1 id="title">Hello World</h1>
+        <h2 class="subtitle">Subtitle</h2>
+        <p class="desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis et quaerat, laborum odio non
+            enim aut eum esse saepe, illum tempore vitae expedita, consequuntur ea a excepturi doloribus eligendi
+            assumenda.</p>
+        <p>
+            Testing paragrap 2
+        </p>
+    </div>
+</body>
+
+<script>
+    let title = document.getElementById("title");
+    title.addEventListener("click", 
+        event => {
+            title.style.color = "red";
+        }
+    )
+
+    let h2_subtitle = document.querySelector("h2.subtitle");
+    h2_subtitle.style.color = "black";
+
+    setInterval(() => {
+        let desc = document.querySelectorAll("p.desc");
+        desc[0].style.color = "red";
+    }, 2000);
+
+    setTimeout(() => {
+            let paragraf = document.getElementsByTagName("p");
+            paragraf[1].style.fontSize = "34px";
+            console.log(paragraf);
+        }, 2000);
+
+
+    const paragraf3 = document.createElement("p");
+    paragraf3.innerText = "Ini Pragraf 3 pakai fungsi createElement";
+</script>
+
+</html>
