@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>World of Pokemon</title>
+</head>
+
+<body>
+    <!-- Exercise 1 -->
+    <div class="container-fluid pt-1">
+        <div class="row mb-1 mt-1">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class="btn btn-info btn-sm mb-2" id="btn-reset" type="reset">Reset</button>
+                <h3 class="fw-light">List Pokemon</h3>
+                <div class="btn-group shadow-lg p-3 bg-body rounded" role="group"
+                     aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" value="pokemon_air" id="pokemon1" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pokemon1">
+                        <img src="/DOM/pokemon_air.webp" width="100px" alt="">
+                    </label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="pokemon2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pokemon2">
+                        <img src="/DOM/pokemon_api.webp" width="100px" alt="">
+                    </label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="pokemon3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pokemon3">
+                        <img src="/DOM/pokemon_angin.webp" width="100px" alt="">
+                    </label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="pokemon4" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="pokemon4">
+                        <img src="/DOM/pokemon_jahat.webp" width="100px" alt="">
+                    </label>
+                </div>
+                <hr>
+                <h1 class="fw-light" id="pokemon-result"></h1>
+                <hr>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3 class="fw-light">Game Pokemon</h3>
+                <table>
+                    <tr>
+                        <td>Player 1</td>
+                        <td>Player 2</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    class Pokemon {
+        reset() {
+            window.location.reload()
+        }
+
+        showPokemonApi() {
+            const pokemon_result = document.getElementById('pokemon-result');
+            pokemon_result.innerHTML = "";
+            pokemon_result.innerHTML = "Aku pokemon api";
+            pokemon_result.style.color = "red";
+        }
+
+        showPokemonAir() {
+            const pokemon_result = document.getElementById('pokemon-result');
+            pokemon_result.innerHTML = "";
+            pokemon_result.innerHTML = "Aku pokemon air";
+            pokemon_result.style.color = "blue";
+        }
+
+        showPokemonAngin() {
+            const pokemon_result = document.getElementById('pokemon-result');
+            pokemon_result.innerHTML = "";
+            pokemon_result.innerHTML = "Aku pokemon air";
+            pokemon_result.style.color = "gray";
+        }
+
+        showPokemonJahat() {
+            const pokemon_result = document.getElementById('pokemon-result');
+            pokemon_result.innerHTML = "";
+            pokemon_result.innerHTML = "Aku pokemon jahat";
+            pokemon_result.style.color = "black";
+        }
+    }
+
+    const pokemon = new Pokemon();
+
+    const pokemon_air = document.getElementById("pokemon1");
+    pokemon_air.addEventListener("click", pokemon.showPokemonAir);
+
+    const pokemon_api = document.getElementById("pokemon2");
+    pokemon_api.addEventListener("click", pokemon.showPokemonApi);
+
+    const pokemon_angin = document.getElementById("pokemon3");
+    pokemon_angin.addEventListener("click", pokemon.showPokemonAngin);
+
+    const pokemon_jahat = document.getElementById("pokemon4");
+    pokemon_jahat.addEventListener("click", pokemon.showPokemonJahat);
+
+    const btn_reset = document.getElementById("btn-reset");
+    btn_reset.addEventListener("click", pokemon.reset)
+</script>
+
+</html>
