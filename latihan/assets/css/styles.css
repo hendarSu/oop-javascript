@@ -1,0 +1,24 @@
+.pokemon-img {
+    border: 1px solid;
+    width: 120px;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.pokemon-img-p2 {
+    border: 1px solid;
+    width: 120px;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.selected {
+    background-color: rgb(16, 125, 125);
+}
+
+.selected-p2 {
+    background-color: rgb(125, 32, 16);
+}
