@@ -8,7 +8,7 @@ function reset() {
     window.location.reload();
 }
 
-POKEMON_IMG.forEach( item => {
+POKEMON_IMG.forEach(item => {
     item.addEventListener("click", () => {
         POKEMON_IMG[0].classList.remove("selected");
         POKEMON_IMG[1].classList.remove("selected");
@@ -16,7 +16,7 @@ POKEMON_IMG.forEach( item => {
 
         item.classList.add("selected");
         const VALUE_SELECTED = item.getAttribute("value");
-        showLogSelected("p1 "+ VALUE_SELECTED);
+        showLogSelected("p1 " + VALUE_SELECTED);
 
         seletP1 = VALUE_SELECTED;
 
@@ -25,7 +25,7 @@ POKEMON_IMG.forEach( item => {
     })
 });
 
-POKEMON_IMG2.forEach( item => {
+POKEMON_IMG2.forEach(item => {
     item.addEventListener("click", () => {
         POKEMON_IMG2[0].classList.remove("selected-p2");
         POKEMON_IMG2[1].classList.remove("selected-p2");
@@ -33,7 +33,7 @@ POKEMON_IMG2.forEach( item => {
 
         item.classList.add("selected-p2");
         const VALUE_SELECTED = item.getAttribute("value");
-        showLogSelected("p2 "+ VALUE_SELECTED);
+        showLogSelected("p2 " + VALUE_SELECTED);
 
         seletP2 = VALUE_SELECTED;
 
@@ -73,7 +73,7 @@ class Arena {
             this.showScore("Player 1");
         } else if (seletP1 === "Pokemon_Angin" && seletP2 === "Pokemon_Air") {
             this.showScore("Player 1");
-        } 
+        }
     }
 
     showScore(winner) {
